@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, World!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Function to get the user's IP address and display it along with the message
+        function getIP() {
+            $.getJSON('https://ipapi.co/json/', function(data) {
+                var ipAddress = data.ip;
+                var geoLocation = data.city + ', ' + data.region + ', ' + data.country_name;
+                var message = 'Hello, World! <br> Your IP Address: ' + ipAddress + '<br> Your Location: ' + geoLocation;
+                document.getElementById('output').innerHTML = message;
+            });
+        }
+    </script>
+</head>
+<body onload="getIP()">
+    <div id="output"></div>
+</body>
+</html>
